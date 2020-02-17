@@ -1,0 +1,36 @@
+description "MySQL interface\377";
+
+acceptflags
+	NOMYSQL,
+	MYSQLDLL;
+
+uses
+	Sql,
+	plugin\z;
+
+library(WIN32 !NOMYSQL MSC) libmysql;
+
+library(WIN32 GCC !NOMYSQL) libmysql.dll;
+
+library(LINUX !MT) "mysqlclient ssl";
+
+library(LINUX MT) "mysqlclient_r ssl";
+
+library(FREEBSD) mysqlclient;
+
+link(WIN32 GCC !NOMYSQL) "-Wl,--enable-stdcall-fixup";
+
+link(DEBUG SO) /nodefaultlib:LIBCD;
+
+link(SHARED SO) /nodefaultlib:LIBCMT;
+
+link(FREEBSD) -L/usr/local/lib/mysql;
+
+file
+	MySql.h,
+	MySqlSchema.h,
+	MySql.cpp,
+	Info readonly separator,
+	srcdoc.tpp,
+	Copying;
+

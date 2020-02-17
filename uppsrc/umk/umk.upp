@@ -1,0 +1,17 @@
+description "Commandline U++ package/assembly builder\377";
+
+uses
+	ide\Builders;
+
+file
+	umake.h,
+	MacOs.cpp,
+	Console.cpp,
+	IdeContext.cpp,
+	MakeBuild.cpp,
+	Export.cpp,
+	umake.cpp;
+
+mainconfig
+	"" = "";
+

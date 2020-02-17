@@ -1,0 +1,13 @@
+uses
+	CtrlLib;
+
+file
+	TextDiffCtrl.h options(BUILDER_OPTION) PCH,
+	TextDiff.cpp,
+	TextCtrl.cpp,
+	DiffCtrl.cpp,
+	DirDiff.cpp,
+	patch.cpp,
+	PatchDiff.cpp,
+	Diff.iml;
+
